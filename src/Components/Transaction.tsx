@@ -60,9 +60,10 @@ export const Transaction = ({ block, selectedBlockIndex, txCreation, setTxCreati
         if (!showPendingTxList) {
             return (
                 <Container>
-                    <h1>
-                        Transactions of Block
-                    </h1>
+                    <br></br>
+                    <h2>
+                        Transactions of Block #{selectedBlockIndex}
+                    </h2>
 
                     <Table striped bordered hover>
                         {renderTableHeader(block, selectedBlockIndex)}

@@ -37,6 +37,10 @@ export default function App() {
             <Transaction block={blockchain} selectedBlockIndex={selectedBlockIndex} txCreation={txCreation} setTxCreation={setTxCreation} showPendingTxList={showPendingTxList}></Transaction>
             <CreateTransactionForm txCreation={txCreation} setTxCreation={setTxCreation} walletAddress={walletAddress} showPendingTxList={showPendingTxList}></CreateTransactionForm>
             <PendingTransactionList txCreation={txCreation} setTxCreation={setTxCreation} pendingTxList={pendingTxList} showPendingTxList={showPendingTxList} rewardWalletId={walletAddress}></PendingTransactionList>
+            <footer className="text-muted text-center">
+                <small>For educational purposes only.
+                    <a href="https://github.com/kobenguyent/blockchain-ui-fun" target="_blank">Source code</a></small>
+            </footer>
         </>
     )
 }

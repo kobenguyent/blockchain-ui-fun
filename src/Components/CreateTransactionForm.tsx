@@ -15,10 +15,10 @@ export const CreateTransactionForm = ({ txCreation = false, setTxCreation, walle
                 "amount": event.target[2].value
             }).then((response) => {
                 console.log(response.data)
+                window.location.reload()
             }).catch(e => {
                 throw Error(e.message)
             });
-            window.location.reload()
         }
 
         return (

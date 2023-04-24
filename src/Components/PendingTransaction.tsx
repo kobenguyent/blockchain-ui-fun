@@ -34,7 +34,10 @@ const renderTxList = (list: any) => {
 
 export const PendingTransactionList = ({ pendingTxList, txCreation, setTxCreation, showPendingTxList, rewardWalletId }:any) => {
     const mineTransaction = () => {
-    apiHelper.post(`/transaction/mine/${rewardWalletId}`).then(() => alert('All transactions are mined!'));
+    apiHelper.post(`/transaction/mine/${rewardWalletId}`).then(() => {
+        alert('All transactions are mined!');
+        window.location.reload()
+    });
     }
 
     if (txCreation === false) {

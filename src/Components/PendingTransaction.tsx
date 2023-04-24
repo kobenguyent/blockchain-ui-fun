@@ -6,6 +6,7 @@ const truncate = (str: string, length = 7) => {
     return str.length > 10 ? str.substring(0, length) + "..." : str;
 }
 
+
 const renderTxList = (list: any) => {
         return list.map((tx: any, id: any) => {
             return (
@@ -33,18 +34,22 @@ const renderTxList = (list: any) => {
 }
 
 export const PendingTransactionList = ({ pendingTxList, txCreation, setTxCreation, showPendingTxList, rewardWalletId }:any) => {
-    const mineTransaction = () => {
-    apiHelper.post(`/transaction/mine/${rewardWalletId}`).then(() => {
-        alert('All transactions are mined!');
-        window.location.reload()
-    });
-    }
 
     if (txCreation === false) {
         setTxCreation(false)
 
         if (showPendingTxList) {
+
+            console.log(pendingTxList.length)
+            const mineTransaction = () => {
+                apiHelper.post(`/transaction/mine/${rewardWalletId}`).then(() => {
+                    alert('All transactions are mined!');
+                    window.location.reload()
+                });
+            }
+
             return (
+                pendingTxList.length <= 0 ? <Container><h1>There are no pending transactions</h1></Container> :
                 <Container>
                     <h1>
                         Pending Transactions
@@ -65,9 +70,7 @@ export const PendingTransactionList = ({ pendingTxList, txCreation, setTxCreatio
                             {renderTxList(pendingTxList)}
                         </tbody>
                     </Table>
-                    <Button variant="primary" onClick={mineTransaction}>
-                        Mine transactions
-                    </Button>
+                    <Button variant="primary" onClick={mineTransaction}>Mine transactions</Button>
                 </Container>
             )
         }

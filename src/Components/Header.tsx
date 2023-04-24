@@ -1,6 +1,6 @@
 import {Button, Container, Navbar} from "react-bootstrap";
 
-export const Header = ({ setTxCreation, setShowPendingTxList }:any) => {
+export const Header = ({ setTxCreation, setShowPendingTxList, pendingTxList }:any) => {
     return (
         <Navbar bg="light" expand="lg">
             <Container>
@@ -8,12 +8,17 @@ export const Header = ({ setTxCreation, setShowPendingTxList }:any) => {
                     setShowPendingTxList(false)
                     setTxCreation(false)
                     window.location.reload()
-                }}>KobeCoin</Navbar.Brand>
+                }}><img
+                    src="../../src/assets/kobecoin.png"
+                    width="130"
+                    height="50"
+                    className="d-inline-block align-top"
+                /></Navbar.Brand>
                 <Container>
                     <Button variant="outline-secondary" onClick={() => {
                         setShowPendingTxList(true)
                         setTxCreation(false)
-                    }}>Pending Transactions</Button>
+                    }}>Pending Transactions ({pendingTxList.length})</Button>
                     <Button variant="outline-secondary" onClick={() => setTxCreation(true)}>Create Transaction</Button>
                 </Container>
             </Container>

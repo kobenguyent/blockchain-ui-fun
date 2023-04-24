@@ -9,7 +9,7 @@ export const Header = ({ setTxCreation, setShowPendingTxList, pendingTxList }:an
                     setTxCreation(false)
                     window.location.reload()
                 }}><img
-                    src="../../src/assets/kobecoin.png"
+                    src="/assets/kobecoin.png"
                     width="130"
                     height="50"
                     className="d-inline-block align-top"

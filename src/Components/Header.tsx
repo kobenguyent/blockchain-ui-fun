@@ -1,4 +1,5 @@
 import {Button, Container, Navbar} from "react-bootstrap";
+import appLogo from '../../src/assets/kobecoin.png'
 
 export const Header = ({ setTxCreation, setShowPendingTxList, pendingTxList }:any) => {
     return (
@@ -9,7 +10,7 @@ export const Header = ({ setTxCreation, setShowPendingTxList, pendingTxList }:an
                     setTxCreation(false)
                     window.location.reload()
                 }}><img
-                    src="/assets/kobecoin.png"
+                    src={appLogo}
                     width="130"
                     height="50"
                     className="d-inline-block align-top"

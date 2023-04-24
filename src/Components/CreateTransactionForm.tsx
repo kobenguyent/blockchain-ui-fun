@@ -18,6 +18,7 @@ export const CreateTransactionForm = ({ txCreation = false, setTxCreation, walle
             }).catch(e => {
                 throw Error(e.message)
             });
+            window.location.reload()
         }
 
         return (

@@ -7,6 +7,7 @@ export const Header = ({ setTxCreation, setShowPendingTxList }:any) => {
                 <Navbar.Brand onClick={() => {
                     setShowPendingTxList(false)
                     setTxCreation(false)
+                    window.location.reload()
                 }}>KobeCoin</Navbar.Brand>
                 <Container>
                     <Button variant="outline-secondary" onClick={() => {

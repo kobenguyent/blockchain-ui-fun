@@ -16,6 +16,16 @@ export default function App() {
     const [walletAddress, setWalletAddress]= useState(null);
 
     useEffect(() => {
+        if (!localStorage.getItem('walletId')) {
+            apiHelper.post('/wallet/create').then((response) => {
+                localStorage.setItem('walletId', response.data.walletAddress)
+            });
+        }
+
+        setWalletAddress(localStorage.getItem('walletId'))
+    }, [])
+
+    useEffect(() => {
         apiHelper.get('/getChain').then((response) => {
             setBlockchain(response.data.chain);
         });
@@ -24,10 +34,6 @@ export default function App() {
             setPendingTxList(response.data);
         });
 
-        apiHelper.post('/wallet/create').then((response) => {
-            localStorage.setItem('walletId', response.data.walletAddress)
-            if (!walletAddress) setWalletAddress(response.data.walletAddress)
-        });
     }, []);
 
     return (

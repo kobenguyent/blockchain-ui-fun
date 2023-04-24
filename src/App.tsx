@@ -8,12 +8,13 @@ import {CreateTransactionForm} from "./Components/CreateTransactionForm.tsx";
 import {PendingTransactionList} from "./Components/PendingTransaction.tsx";
 
 export default function App() {
+    let initWalletAddress: any
     const [blockchain, setBlockchain] = useState([]);
     const [pendingTxList, setPendingTxList] = useState([]);
     const [selectedBlockIndex, setSelectedBlockIndex ] = useState( 0);
     const [txCreation, setTxCreation]= useState( false);
     const [showPendingTxList, setShowPendingTxList] = useState(false)
-    const [walletAddress, setWalletAddress]= useState(null);
+    const [walletAddress, setWalletAddress]= useState(initWalletAddress);
 
     useEffect(() => {
         if (!localStorage.getItem('walletId')) {

@@ -4,27 +4,13 @@ import {Block} from "./Components/Block.tsx";
 import {Transaction} from "./Components/Transaction.tsx";
 import {useEffect, useState} from "react";
 import {apiHelper} from "./helpers/api.ts";
-import {CreateTransactionForm} from "./Components/CreateTransactionForm.tsx";
-import {PendingTransactionList} from "./Components/PendingTransaction.tsx";
 
 export default function App() {
-    let initWalletAddress: any
     const [blockchain, setBlockchain] = useState([]);
-    const [pendingTxList, setPendingTxList] = useState([]);
+    const [, setPendingTxList] = useState([]);
     const [selectedBlockIndex, setSelectedBlockIndex ] = useState( 0);
     const [txCreation, setTxCreation]= useState( false);
-    const [showPendingTxList, setShowPendingTxList] = useState(false)
-    const [walletAddress, setWalletAddress]= useState(initWalletAddress);
-
-    useEffect(() => {
-        if (!localStorage.getItem('walletId')) {
-            apiHelper.post('/wallet/create').then((response) => {
-                localStorage.setItem('walletId', response.data.walletAddress)
-            });
-        }
-
-        setWalletAddress(localStorage.getItem('walletId'))
-    }, [])
+    const [showPendingTxList,] = useState(false)
 
     useEffect(() => {
         apiHelper.get('/getChain').then((response) => {
@@ -39,15 +25,9 @@ export default function App() {
 
     return (
         <>
-            <Header setTxCreation={setTxCreation} setShowPendingTxList={setShowPendingTxList} pendingTxList={pendingTxList}/>
+            <Header/>
             <Block block={blockchain} setSelectedBlockIndex={setSelectedBlockIndex} txCreation={txCreation} setTxCreation={setTxCreation} showPendingTxList={showPendingTxList}></Block>
             <Transaction block={blockchain} selectedBlockIndex={selectedBlockIndex} txCreation={txCreation} setTxCreation={setTxCreation} showPendingTxList={showPendingTxList}></Transaction>
-            <CreateTransactionForm txCreation={txCreation} setTxCreation={setTxCreation} walletAddress={walletAddress} showPendingTxList={showPendingTxList}></CreateTransactionForm>
-            <PendingTransactionList txCreation={txCreation} setTxCreation={setTxCreation} pendingTxList={pendingTxList} showPendingTxList={showPendingTxList} rewardWalletId={walletAddress}></PendingTransactionList>
-            <footer className="text-muted text-center">
-                <small>For educational purposes only.
-                    <a href="https://github.com/kobenguyent/blockchain-ui-fun" target="_blank">Source code</a></small>
-            </footer>
         </>
-    )
+     )
 }

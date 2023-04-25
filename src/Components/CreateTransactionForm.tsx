@@ -2,10 +2,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {Container} from "react-bootstrap";
 import {apiHelper} from "../helpers/api.ts";
+import {Footer} from "./Footer.tsx";
+import {Header} from "./Header.tsx";
+import {InfoModal} from "./InfoModal.tsx";
+import {useState} from "react";
 
-export const CreateTransactionForm = ({ txCreation = false, setTxCreation, walletAddress }: any) => {
-    if (txCreation) {
-        setTxCreation(true)
+export const CreateTransactionForm = ({ walletAddress }: any) => {
+    const [show, setShow] = useState(false);
 
         const handleOnSubmit = (event: any) => {
             event.preventDefault();
@@ -13,16 +16,14 @@ export const CreateTransactionForm = ({ txCreation = false, setTxCreation, walle
                 "from": event.target[0].value,
                 "to": event.target[1].value,
                 "amount": event.target[2].value
-            }).then((response) => {
-                console.log(response.data)
-                window.location.reload()
-            }).catch(e => {
+            }).then(() => setShow(true)).catch(e => {
                 throw Error(e.message)
             });
         }
 
         return (
             <Container>
+                <Header/>
                 <h1>Create Transactions</h1>
                 <Form onSubmit={handleOnSubmit}>
                     <Form.Group className="mb-3" controlId="fromAddress">
@@ -43,7 +44,7 @@ export const CreateTransactionForm = ({ txCreation = false, setTxCreation, walle
 
                     <Form.Group className="mb-3" controlId="amount">
                         <Form.Label>Amount</Form.Label>
-                        <Form.Control type="number" placeholder="1" required value="1"/>
+                        <Form.Control type="number" placeholder="1" required/>
                         <Form.Text className="text-muted">
                             You can transfer any amount. Account balance is not checked in this demo. Have at it!
                         </Form.Text>
@@ -52,12 +53,12 @@ export const CreateTransactionForm = ({ txCreation = false, setTxCreation, walle
                     <Button variant="primary" type="submit">
                         Create Transaction
                     </Button>
+
+                    <InfoModal title='Transaction Creation' bodyText='Woohoo, your transaction is created successfully!' setShow={setShow} show={show}></InfoModal>
                 </Form>
+                <Footer></Footer>
             </Container>
-
         )
-    }
-
     return (
         <></>
     )

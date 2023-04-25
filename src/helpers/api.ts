@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseURL = 'https://kobecoin2-kobenguyent.b4a.run/'
+const baseURL = import.meta.env.VITE_LOCAL_API || 'https://kobecoin2-kobenguyent.b4a.run/'
 const client = axios.create();
 client.defaults.baseURL = baseURL;
 

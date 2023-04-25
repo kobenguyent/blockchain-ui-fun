@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
-import {createBrowserRouter, RouterProvider} from "react-router-dom"
+import {createHashRouter, RouterProvider} from "react-router-dom"
 import {CreateTransactionForm} from "./Components/CreateTransactionForm.tsx";
 import {apiHelper} from "./helpers/api.ts";
 import {PendingTransactionList} from "./Components/PendingTransaction.tsx";
@@ -14,17 +14,17 @@ if (!localStorage.getItem('walletId')) {
 
 const pendingTxList = (await apiHelper.get('/transaction/pendingList')).data
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
-        path: "blockchain-ui-fun/",
+        path: "/",
         element: <App />,
     },
     {
-        path: 'blockchain-ui-fun/createTransaction',
+        path: 'createTransaction',
         element: <CreateTransactionForm walletAddress={localStorage.getItem('walletId')}></CreateTransactionForm>
     },
     {
-        path: 'blockchain-ui-fun/pendingTransaction',
+        path: 'pendingTransaction',
         element: <PendingTransactionList pendingTxList={pendingTxList} rewardWalletId={localStorage.getItem('walletId')}></PendingTransactionList>
     }
 ]);

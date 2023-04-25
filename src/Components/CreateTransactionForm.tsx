@@ -28,7 +28,7 @@ export const CreateTransactionForm = ({ walletAddress }: any) => {
                 <Form onSubmit={handleOnSubmit}>
                     <Form.Group className="mb-3" controlId="fromAddress">
                         <Form.Label>From wallet address</Form.Label>
-                        <Form.Control type="text" placeholder="fa1576629e6f160e343c61872722265f4cb5f1baf97856fd5b59a87501108f0d" value={walletAddress}/>
+                        <Form.Control type="text" placeholder="fa1576629e6f160e343c61872722265f4cb5f1baf97856fd5b59a87501108f0d" value={walletAddress} required/>
                         <Form.Text className="text-muted">
                             This is your wallet address.
                         </Form.Text>
@@ -36,7 +36,7 @@ export const CreateTransactionForm = ({ walletAddress }: any) => {
 
                     <Form.Group className="mb-3" controlId="toAddress">
                         <Form.Label>To wallet address</Form.Label>
-                        <Form.Control type="text" placeholder="fa1576629e6f160e343c61872722265f4cb5f1baf97856fd5b59a87501108f0d" value={walletAddress}/>
+                        <Form.Control type="text" placeholder="fa1576629e6f160e343c61872722265f4cb5f1baf97856fd5b59a87501108f0d" value={walletAddress} required/>
                         <Form.Text className="text-muted">
                             The address of the wallet where you want to send the money to.
                         </Form.Text>

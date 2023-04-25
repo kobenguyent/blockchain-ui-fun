@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import {Block} from "./Block.tsx";
 
 describe('Block component', async () => {
-    it.only('Should render the block component correctly', async () => {
+    it('Should render the block component correctly', async () => {
         const setSelectedBlockIndex = (index:any) => {
             return index
         }

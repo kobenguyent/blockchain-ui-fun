@@ -1,7 +1,7 @@
 import {Container, Table} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import {apiHelper} from "../helpers/api.ts";
-import {Header} from "./Header.tsx";
+import {Header} from "./Header/Header.tsx";
 import {Footer} from "./Footer.tsx";
 import {useState} from "react";
 import {InfoModal} from "./InfoModal.tsx";

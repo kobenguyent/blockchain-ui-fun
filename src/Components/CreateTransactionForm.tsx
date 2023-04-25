@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import {Container} from "react-bootstrap";
 import {apiHelper} from "../helpers/api.ts";
 import {Footer} from "./Footer.tsx";
-import {Header} from "./Header.tsx";
+import {Header} from "./Header/Header.tsx";
 import {InfoModal} from "./InfoModal.tsx";
 import {useState} from "react";
 

@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header component > Should render the header component correctly 1`] = `
+<a
+  class="navbar-brand"
+  data-testid="logo"
+  href="#"
+>
+  <img
+    class="d-inline-block align-top"
+    height="50"
+    src="/blockchain-ui-fun/src/assets/kobecoin.png"
+    width="130"
+  />
+</a>
+`;
+
+exports[`Header component > Should render the header component correctly 2`] = `
+<a
+  class="btn btn-outline-secondary"
+  data-testid="showPendingTransactions"
+  href="#/pendingTransaction"
+  role="button"
+  tabindex="0"
+>
+  Pending Transactions
+</a>
+`;
+
+exports[`Header component > Should render the header component correctly 3`] = `
+<a
+  class="btn btn-outline-secondary"
+  data-testid="createTransaction"
+  href="#/createTransaction"
+  role="button"
+  tabindex="0"
+>
+  Create Transaction
+</a>
+`;

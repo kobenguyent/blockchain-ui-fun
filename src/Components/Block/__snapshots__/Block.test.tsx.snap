@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Block component > Should render the block component correctly 1`] = `
+<h1>
+  Blocks on chain
+</h1>
+`;

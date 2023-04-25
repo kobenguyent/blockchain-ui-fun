@@ -1,6 +1,6 @@
 import './App.scss';
-import {Header} from "./Components/Header.tsx";
-import {Block} from "./Components/Block.tsx";
+import {Header} from "./Components/Header/Header.tsx";
+import {Block} from "./Components/Block/Block.tsx";
 import {Transaction} from "./Components/Transaction.tsx";
 import {useEffect, useState} from "react";
 import {apiHelper} from "./helpers/api.ts";
@@ -26,7 +26,7 @@ export default function App() {
     return (
         <>
             <Header/>
-            <Block block={blockchain} setSelectedBlockIndex={setSelectedBlockIndex} txCreation={txCreation} setTxCreation={setTxCreation} showPendingTxList={showPendingTxList}></Block>
+            <Block block={blockchain} setSelectedBlockIndex={setSelectedBlockIndex}></Block>
             <Transaction block={blockchain} selectedBlockIndex={selectedBlockIndex} txCreation={txCreation} setTxCreation={setTxCreation} showPendingTxList={showPendingTxList}></Transaction>
         </>
      )

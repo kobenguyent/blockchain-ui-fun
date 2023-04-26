@@ -1,4 +1,4 @@
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/peternguyew)
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/peternguyew) [![codecov](https://codecov.io/gh/kobenguyent/blockchain-ui-fun/branch/main/graph/badge.svg?token=C14agyNPib)](https://codecov.io/gh/kobenguyent/blockchain-ui-fun)
 
 React application that allows you to interact with a blockchain. You can see the blocks on chain, see transaction within them and even create new transactions and mine blocks.
 

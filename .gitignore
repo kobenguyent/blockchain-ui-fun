@@ -24,7 +24,6 @@ dist-ssr
 *.sw?
 
 coverage
-package-lock.json
 
 tests/e2e/node_modules
 tests/e2e/output

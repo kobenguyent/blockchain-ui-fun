@@ -1,10 +1,10 @@
 import {Container, Table} from "react-bootstrap";
 
-const truncate = (str: string, length = 7) => {
+export const truncate = (str: string, length = 7) => {
     return str.length > 10 ? str.substring(0, length) + "..." : str;
 }
 
-const renderTxList = (block: any, index: any) => {
+export const renderTxList = (block: any, index: any) => {
     if (block.length > 0 && block[index].transactions && block[index].transactions.length > 0) {
         return block[index].transactions.map((tx: any, id: any) => {
             return (
@@ -12,12 +12,12 @@ const renderTxList = (block: any, index: any) => {
                     <td>{id}</td>
                     <td>
                         <span>
-                            {truncate(tx.fromAddress, 20)}
+                            { tx.fromAddress.toLowerCase() !== 'system' ? <a href={`#/wallet/${tx.fromAddress}`}>{truncate(tx.fromAddress, 20)}</a> : 'system'}
                         </span>
                     </td>
                     <td>
                         <span>
-                            {truncate(tx.toAddress, 20)}
+                            <a href={`#/wallet/${tx.toAddress}`}>{truncate(tx.toAddress, 20)}</a>
                         </span>
                     </td>
                     <td>{tx.amount}</td>
@@ -32,7 +32,7 @@ const renderTxList = (block: any, index: any) => {
     }
 }
 
-const renderTableHeader = (block: any, index: any) => {
+export const renderTableHeader = (block: any, index: any) => {
     if (block.length > 0 && block[index].nonce === 0) {
         return (
             <div>

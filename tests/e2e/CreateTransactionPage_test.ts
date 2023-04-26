@@ -14,6 +14,8 @@ Scenario('Create transactions page is loaded',  () => {
 
 Scenario('Create new transaction successfully',  () => {
     I.fillField('$form-amount', 10)
+    I.click('$form-generateNewWalletId')
+    I.wait(1)
     I.click('$form-createTransaction')
     I.waitForText('Woohoo, your transaction is created successfully!')
 });

@@ -5,9 +5,11 @@ import {createHashRouter, RouterProvider} from "react-router-dom"
 import {CreateTransactionForm} from "./Components/CreateTransactionForm.tsx";
 import {apiHelper} from "./helpers/api.ts";
 import {PendingTransactionList} from "./Components/PendingTransaction.tsx";
+import {Wallet} from "./Components/Wallet/Wallet.tsx";
 
 const pendingTxList = (await apiHelper.get('/transaction/pendingList')).data
 const walletId = (await apiHelper.post('/wallet/create')).data.walletAddress
+const block = (await apiHelper.get('/getChain')).data.chain
 
 const router = createHashRouter([
     {
@@ -21,6 +23,10 @@ const router = createHashRouter([
     {
         path: 'pendingTransaction',
         element: <PendingTransactionList pendingTxList={pendingTxList} rewardWalletId={walletId}></PendingTransactionList>
+    },
+    {
+        path: 'wallet/:id',
+        element: <Wallet block={block}></Wallet>
     }
 ]);
 

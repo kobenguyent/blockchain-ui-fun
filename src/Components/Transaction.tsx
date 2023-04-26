@@ -62,7 +62,7 @@ export const Transaction = ({ block, selectedBlockIndex, txCreation, setTxCreati
                 <Container>
                     <br></br>
                     <h2>
-                        Transactions of Block #{selectedBlockIndex}
+                        Transactions of Block #{selectedBlockIndex + 1}
                     </h2>
 
                     <Table striped bordered hover>

@@ -11,7 +11,7 @@ export const config: CodeceptJS.MainConfig = {
   output: './output',
   helpers: {
     Playwright: {
-      url: 'http://127.0.0.1:4173/blockchain-ui-fun',
+      url: 'http://127.0.0.1:5173/blockchain-ui-fun',
       show: false,
       browser: 'chromium',
       waitForTimeout: 60_000,

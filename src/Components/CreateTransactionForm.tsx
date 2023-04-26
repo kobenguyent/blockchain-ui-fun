@@ -42,15 +42,15 @@ export const CreateTransactionForm = ({ walletAddress }: any) => {
                         </Form.Text>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="amount">
+                    <Form.Group className="mb-3">
                         <Form.Label>Amount</Form.Label>
-                        <Form.Control type="number" placeholder="1" required/>
+                        <Form.Control type="number" placeholder="1" required data-testid='form-amount'/>
                         <Form.Text className="text-muted">
                             You can transfer any amount. Account balance is not checked in this demo. Have at it!
                         </Form.Text>
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" type="submit" data-testid='form-createTransaction'>
                         Create Transaction
                     </Button>
 

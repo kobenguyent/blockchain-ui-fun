@@ -25,3 +25,7 @@ dist-ssr
 
 coverage
 package-lock.json
+
+tests/e2e/node_modules
+tests/e2e/output
+tests/e2e/package-lock.json

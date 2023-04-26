@@ -30,7 +30,7 @@ export const Block = ({block, setSelectedBlockIndex}: any) => {
                                                  style={{"color": 'grey'}}>{item.timestamp}</div>
                                         </ListGroup.Item>
                                     </ListGroup>
-                                    <Button variant="primary">Show Transactions</Button>
+                                    <Button variant="primary" key={i}>Show Transactions</Button>
                                 </Card.Text>
                             </Card.Body>
                         </Card>

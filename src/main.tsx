@@ -6,13 +6,8 @@ import {CreateTransactionForm} from "./Components/CreateTransactionForm.tsx";
 import {apiHelper} from "./helpers/api.ts";
 import {PendingTransactionList} from "./Components/PendingTransaction.tsx";
 
-if (!localStorage.getItem('walletId')) {
-    apiHelper.post('/wallet/create').then((response) => {
-        localStorage.setItem('walletId', response.data.walletAddress)
-    });
-}
-
 const pendingTxList = (await apiHelper.get('/transaction/pendingList')).data
+const walletId = (await apiHelper.post('/wallet/create')).data.walletAddress
 
 const router = createHashRouter([
     {
@@ -21,11 +16,11 @@ const router = createHashRouter([
     },
     {
         path: 'createTransaction',
-        element: <CreateTransactionForm walletAddress={localStorage.getItem('walletId')}></CreateTransactionForm>
+        element: <CreateTransactionForm walletAddress={walletId}></CreateTransactionForm>
     },
     {
         path: 'pendingTransaction',
-        element: <PendingTransactionList pendingTxList={pendingTxList} rewardWalletId={localStorage.getItem('walletId')}></PendingTransactionList>
+        element: <PendingTransactionList pendingTxList={pendingTxList} rewardWalletId={walletId}></PendingTransactionList>
     }
 ]);
 

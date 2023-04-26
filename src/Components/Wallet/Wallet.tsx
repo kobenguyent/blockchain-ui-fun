@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import {apiHelper} from "../../helpers/api.ts";
 import {truncate} from "../Transaction.tsx";
 import { useParams } from 'react-router';
+import coinlogo from '../../assets/kobecoin.svg'
 
 const renderTxList = (txList: any) => {
 
@@ -76,7 +77,7 @@ export const Wallet = ({ block }: any) => {
 
     useEffect(() => {
         apiHelper.get(`wallet/balance/${walletAddress}`).then(res => {
-            setWalletBalance(res.data.balance)
+            setWalletBalance(parseInt(res.data.balance))
         })
     }, [])
 
@@ -88,7 +89,11 @@ export const Wallet = ({ block }: any) => {
             <p>Address:</p>
             <p style={{"color": '#' + walletAddress?.substring(0, 6)}}>{walletAddress}</p>
             <p>Balance:</p>
-            <p>{walletBalance}</p>
+            <p>{walletBalance}<img
+                src={coinlogo}
+                width="100"
+                height="50"
+            /></p>
             <Container>
                 <h2>
                     Transactions
